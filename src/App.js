@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Coins from "./components/Coins";
-import Header from './components/Header'
+import Header from "./components/Header";
+import Coin from "./Pages/Coin";
 
 function App() {
     const [coins, setCoins] = useState([]);
@@ -15,7 +17,6 @@ function App() {
             .get(url)
             .then((response) => {
                 setCoins(response.data);
-                console.log(response.data[0]);
             })
             .catch((error) => {
                 console.log(error);
@@ -25,9 +26,16 @@ function App() {
     return (
         <div>
             <Header />
-            <Coins coins={coins} />
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<Coins coins={coins} />} />
+                    <Route path="/coin" element={<Coin />}>
+                        <Route path=":coinId" element={<Coin />} />
+                    </Route>
+                </Routes>
+            </BrowserRouter>
         </div>
-    ); 
+    );
 }
 
 export default App;
