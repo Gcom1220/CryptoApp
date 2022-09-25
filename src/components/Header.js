@@ -8,17 +8,17 @@ function Header() {
   console.log(location);
 
   return (
-    <header className="flex justify-between h-20 text-4xl font-lobster bg-blue-300 p-4">
+    <header className="flex justify-between h-20 text-4xl font-lobster p-4">
       <Link to="/">
         <div className="flex justify-center items-center">
-          <GiCoins /> <span className="text-slate-400 text-lg">my</span>{" "}
+          <GiCoins /> <span className="text-slate-400 text-lg">my</span>
           Crypto.App
         </div>
       </Link>
-
-      <div>{location.pathname === "/" && <BsSearch />}</div>
+      
       <div className="flex justify-between items-center w-20">
         <GiHamburgerMenu />
+        {location.pathname === "/" && <BsSearch />}
       </div>
     </header>
   );

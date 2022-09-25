@@ -2,10 +2,10 @@ import React from "react";
 
 const CoinItem = (props) => {
   return (
-    <div className="cursor-pointer items-center place-items-center hover:scale-105 transition ease-in-out delay-300 grid grid-cols-6 bg-#26272b shadow-sm shadow-neutral-900 rounded-md mx-0.5 my-px  p-px">
+    <div className="cursor-pointer grid grid-cols-6 items-center place-items-center hover:scale-105 transition ease-in-out delay-300 bg-#26272b shadow-sm shadow-neutral-900 rounded-md mx-0.5 my-px  p-px">
       <p>{props.coins.market_cap_rank}</p>
       <div className="flex items-center">
-        <img src={props.coins.image} alt="" className="h-10 w-auto mr-2" />
+        <img src={props.coins.image} alt="" className="h-10 w-auto" />
         <p>{props.coins.symbol.toUpperCase()}</p>
       </div>
       <p>${props.coins.current_price.toLocaleString()}</p>
